@@ -22,8 +22,8 @@ Welcome to the Distributed Graph Learning Library.
 - Ensure any new source files are placed in their appropriate locations, are accessible to other modules, and are properly named, formatted, and documented.
 
 ## Open-Source Guidelines
-- The code will undergo a plagiarism check.
 - Strictly follow Open Source Guidelines.
+- The code will undergo a plagiarism check.
 - Do not use DGL or any other third-party libraries.
 - You may use PyTorch for data loading, neural network operations, etc.
 - If you must borrow code, make sure it is marked, properly cited, and attributed to the original author.
