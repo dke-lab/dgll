@@ -1,17 +1,21 @@
 # Distibuted Graph Learning Library
 Welcome to the Distributed Graph Learning Library.
 
+# Repository
+- This repository is currently private.
+- Please ensure you are logged into GitHub and have been granted access to this repository.
+- If you do not have access, kindly provide your GitHub ID so we can add you.
+- The repository will be made public for release.
 
-# VERY IMPORTANT NOTES
-
-> **Warning**
->
+> [!CAUTION]
 > Do not use DGL or any other third-party libraries.
 
-> **Tip**
->
+> [!TIP]
 > You may use PyTorch for data loading, neural network operations, etc.
 
+<br>
+
+# VERY IMPORTANT NOTES
 Please strictly follow the following guidelines:
 
 ## Backend
