@@ -1,12 +1,27 @@
 import pickle
 
 """
-NOTE: VERY IMPORTANT
---------------------
+NOTE 1 VERY IMPORTANT: BACKEND
+------------------------------
 Do not use "import torch"
 Instead, use "from dgll import backend as F"
 In your code, use "F.tensor" or any PyTorch functions using "F."
 PyTorch is already included as a backend in the dgll library to ensure consistency and the possibily of multiple backends.
+
+NOTE 2 VERY IMPORTANT: DOCUMENTATION
+------------------------------------
+- Please pay close attention to source code formatting, adhere to coding standards.
+- Avoid spaghetti code, ensure clean code.
+- Use Object Oriented Design.
+- Pay special attention to the documentation inside code.
+  Make sure all the user_api is properly documented.
+  Our final documentation will be generated from source code.
+- For sample documentation, please refer to dgll/data/dgraph.py.
+
+NOTE 3 VERY IMPORTANT: MODULARITY
+---------------------------------
+- This library is modular. Please maintain proper modularity.
+- Make sure any new source file you add is in its proper place, accessible to other modules, properly named, formatted, and documented.
 """
 from dgll import backend as F
 
