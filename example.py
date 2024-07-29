@@ -33,6 +33,8 @@ NOTE 5: HOW TO USE THE REPOSITORY
     - Add the names and versions of any new modules installed using pip to the "requirements.txt" file.
     - Please do not commit your changes directly to the main code base. Instead, issue a Pull Request to merge your changes. This allows us to review and discuss the changes before integrating them into the main codebase.
     - Every merge request will undergo a thorough review, ensuring code quality, proper documentation, formatting, and functionality before merging. Please consider this process carefully before issuing a merge request, as timely review is crucial.
+    - If you encounter any issues with code owned by others, please create an issue and contact the responsible person for resolution.
+    - For feature requests, please use the Discussion Board.
 
 NOTE 5: IDENTIFICATION AND ATTRIBUTION
     - Add your name to the top of each source file you own.
