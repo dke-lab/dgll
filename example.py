@@ -38,7 +38,7 @@ NOTE 5: HOW TO USE THE REPOSITORY
     - Please ensure you provide a proper summary before committing your changes.
 
 NOTE 5: IDENTIFICATION AND ATTRIBUTION
-    - Add your name to the top of each source file you own.
+    - Please add your name, date, and version at the top of each source file you own. Additionally, ensure to include this information for any changes you make in code owned by others.
     - Also, include your name in the comments or documentation for any changes you make to code owned by others for identification and attribution purposes.
 """
 
