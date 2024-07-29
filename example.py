@@ -1,27 +1,27 @@
 import pickle
 
 """
-NOTE 1 VERY IMPORTANT: BACKEND
-------------------------------
-Do not use "import torch"
-Instead, use "from dgll import backend as F"
-In your code, use "F.tensor" or any PyTorch functions using "F."
-PyTorch is already included as a backend in the dgll library to ensure consistency and the possibily of multiple backends.
-
-NOTE 2 VERY IMPORTANT: DOCUMENTATION
-------------------------------------
-- Please pay close attention to source code formatting, adhere to coding standards.
-- Avoid spaghetti code, ensure clean code.
-- Use Object Oriented Design.
-- Pay special attention to the documentation inside code.
-  Make sure all the user_api is properly documented.
-  Our final documentation will be generated from source code.
-- For sample documentation, please refer to dgll/data/dgraph.py.
-
-NOTE 3 VERY IMPORTANT: MODULARITY
----------------------------------
-- This library is modular. Please maintain proper modularity.
-- Make sure any new source file you add is in its proper place, accessible to other modules, properly named, formatted, and documented.
+NOTE 1: VERY IMPORTANT - BACKEND
+    - Do not use "import torch" directly.
+    - Instead, use "from dgll import backend as F".
+    - In your code, refer to PyTorch functions using F. (e.g., F.tensor).
+    - PyTorch is integrated as a backend in the dgll library to ensure consistency and support for multiple backends.
+NOTE 2: VERY IMPORTANT - DOCUMENTATION
+    - Pay close attention to source code formatting and adhere to coding standards.
+    - Avoid spaghetti code; ensure your code is clean and maintainable.
+    - Use Object-Oriented Design principles.
+    - Ensure that all User Api functions and classes are properly documented.
+    - Final documentation will be generated from the source code.
+    - For sample documentation, refer to dgll/data/dgraph.py.
+NOTE 3: VERY IMPORTANT - MODULARITY
+    - This library is designed to be modular. Maintain proper modularity in your code.
+    - Ensure any new source files are placed in their appropriate locations, are accessible to other modules, and are properly named, formatted, and documented.
+NOTE 4: VERY IMPORTANT - OPEN SOURCE GUIDELINES
+    - The code will undergo a plagiarism check.
+    - Strictly follow Open Source Guidelines.
+    - Do not use DGL or any other third-party libraries.
+    - You may use PyTorch for data loading, neural network operations, etc.
+    - If you must borrow code, make sure it is marked, properly cited, and attributed to the original author.
 """
 from dgll import backend as F
 
