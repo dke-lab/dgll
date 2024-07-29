@@ -29,3 +29,14 @@ Please strictly follow the following guidelines:
 - Do not use DGL or any other third-party libraries.
 - You may use PyTorch for data loading, neural network operations, etc.
 - If you must borrow code, make sure it is marked, properly cited, and attributed to the original author.
+
+## How to use the repository
+- Create a virtual environment.
+- Clone the repository.
+- Exclude virtual environment files/directories using `.gitignore` to avoid them being pushed to GitHub.
+- Add the names and versions of any new modules installed using pip to the `requirements.txt` file.
+- Every merge request will be reviewed and thoroughly checked for code quality, proper documentation, formatting, and functionality before merging.
+
+## Identification and Attribution
+- Add your name to the top of each source file you own.
+- Also, include your name in the comments or documentation for any changes you make to code owned by others for identification and attribution purposes.

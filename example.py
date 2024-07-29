@@ -1,28 +1,43 @@
 import pickle
 
 """
-NOTE 1: VERY IMPORTANT - BACKEND
+NOTE 1: BACKEND
     - Do not use "import torch" directly.
     - Instead, use "from dgll import backend as F".
-    - In your code, refer to PyTorch functions using F. (e.g., F.tensor).
+    - In your code, refer to PyTorch functions using "F." (e.g., "F.tensor").
     - PyTorch is integrated as a backend in the dgll library to ensure consistency and support for multiple backends.
-NOTE 2: VERY IMPORTANT - DOCUMENTATION
+
+NOTE 2: DOCUMENTATION
     - Pay close attention to source code formatting and adhere to coding standards.
     - Avoid spaghetti code; ensure your code is clean and maintainable.
     - Use Object-Oriented Design principles.
     - Ensure that all User Api functions and classes are properly documented.
     - Final documentation will be generated from the source code.
     - For sample documentation, refer to dgll/data/dgraph.py.
-NOTE 3: VERY IMPORTANT - MODULARITY
+
+NOTE 3: MODULARITY
     - This library is designed to be modular. Maintain proper modularity in your code.
     - Ensure any new source files are placed in their appropriate locations, are accessible to other modules, and are properly named, formatted, and documented.
-NOTE 4: VERY IMPORTANT - OPEN SOURCE GUIDELINES
+
+NOTE 4: OPEN SOURCE GUIDELINES
     - Strictly follow Open Source Guidelines.
     - The code will undergo a plagiarism check.
     - Do not use DGL or any other third-party libraries.
     - You may use PyTorch for data loading, neural network operations, etc.
     - If you must borrow code, make sure it is marked, properly cited, and attributed to the original author.
+
+NOTE 5: HOW TO USE THE REPOSITORY
+    - Create a virtual environment.
+    - Clone the repository.
+    - Exclude virtual environment files/directories using ".gitignore" to avoid them being pushed to GitHub.
+    - Add the names and versions of any new modules installed using pip to the "requirements.txt" file.
+    - Every merge request will be reviewed and thoroughly checked for code quality, proper documentation, formatting, and functionality before merging.
+
+NOTE 5: IDENTIFICATION AND ATTRIBUTION
+    - Add your name to the top of each source file you own.
+    - Also, include your name in the comments or documentation for any changes you make to code owned by others for identification and attribution purposes.
 """
+
 from dgll import backend as F
 
 # Load the graph
