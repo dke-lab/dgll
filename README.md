@@ -13,7 +13,7 @@ Welcome to the Distributed Graph Learning Library.
 > [!TIP]
 > You may use PyTorch for data loading, neural network operations, etc.
 
-
+---
 # VERY IMPORTANT NOTES
 Please strictly follow the following guidelines:
 
