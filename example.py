@@ -35,6 +35,7 @@ NOTE 5: HOW TO USE THE REPOSITORY
     - Every merge request will undergo a thorough review, ensuring code quality, proper documentation, formatting, and functionality before merging. Please consider this process carefully before issuing a merge request, as timely review is crucial.
     - If you encounter any issues with code owned by others, please create an issue and contact the responsible person for resolution.
     - For feature requests, please use the Discussion Board.
+    - Please ensure you provide a proper summary before committing your changes.
 
 NOTE 5: IDENTIFICATION AND ATTRIBUTION
     - Add your name to the top of each source file you own.
