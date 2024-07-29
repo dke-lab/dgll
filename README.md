@@ -3,7 +3,6 @@ Welcome to the Distributed Graph Learning Library.
 
 
 # VERY IMPORTANT NOTES
-Please strictly follow the following guidelines:
 
 > **Warning**
 >
@@ -12,6 +11,8 @@ Please strictly follow the following guidelines:
 > **Tip**
 >
 > You may use PyTorch for data loading, neural network operations, etc.
+
+Please strictly follow the following guidelines:
 
 ## Backend
 - Do not use `import torch` directly.
