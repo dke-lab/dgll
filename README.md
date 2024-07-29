@@ -1,7 +1,9 @@
 # Distibuted Graph Learning Library
 Welcome to the Distributed Graph Learning Library.
 
+
 # VERY IMPORTANT NOTES
+Please strictly follow the following guidelines:
 
 ## Backend
 - Do not use `import torch` directly.
