@@ -29,7 +29,7 @@ Please strictly follow the following guidelines:
 - Use Object-Oriented Design principles.
 - Ensure that all User Api functions and classes are properly documented.
 - Final documentation will be generated from the source code.
-- For sample documentation, refer to dgll/data/dgraph.py.
+- For sample documentation, refer to `dgll/data/dgraph.py`.
 
 ## Modularity
 - This library is designed to be modular. Maintain proper modularity in your code.
