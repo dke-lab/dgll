@@ -5,6 +5,14 @@ Welcome to the Distributed Graph Learning Library.
 # VERY IMPORTANT NOTES
 Please strictly follow the following guidelines:
 
+> **Warning**
+>
+> Do not use DGL or any other third-party libraries.
+
+> **Tip**
+>
+> You may use PyTorch for data loading, neural network operations, etc.
+
 ## Backend
 - Do not use `import torch` directly.
 - Instead, use `from dgll import backend as F`.
