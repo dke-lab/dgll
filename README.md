@@ -32,10 +32,11 @@ Please strictly follow the following guidelines:
 
 ## How to use the repository
 - Create a virtual environment.
-- Clone the repository.
+- Fork the repository.
 - Exclude virtual environment files/directories using `.gitignore` to avoid them being pushed to GitHub.
 - Add the names and versions of any new modules installed using pip to the `requirements.txt` file.
-- Every merge request will be reviewed and thoroughly checked for code quality, proper documentation, formatting, and functionality before merging.
+- Please do not commit your changes directly to the main code base. Instead, issue a Pull Request to merge your changes. This allows us to review and discuss the changes before integrating them into the main codebase.
+- Every merge request will undergo a thorough review, ensuring code quality, proper documentation, formatting, and functionality before merging. Please consider this process carefully before issuing a merge request, as timely review is crucial.
 
 ## Identification and Attribution
 - Add your name to the top of each source file you own.
