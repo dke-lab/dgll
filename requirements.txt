@@ -1,7 +1,7 @@
-numpy               # Added by admin, required for general purpose numerical computation
-tqdm                # Added by admin, required for general purpose
-requests            # Added by admin, required for general purpose
-metis               # Added by admin, required for graph partitioning
+torch               # Added by admin, main backend for DGLL
 torch-scatter       # Added by admin, required for SPMM
 torch-sparse        # Added by admin, required for SPMM
-
+numpy               # Added by admin, required for general purpose numerical computation
+metis               # Added by admin, required for graph partitioning
+tqdm                # Added by admin, required for general purpose
+requests            # Added by admin, required for general purpose
