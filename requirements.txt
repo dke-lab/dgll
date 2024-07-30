@@ -2,5 +2,6 @@ numpy               # Added by admin, required for general purpose numerical com
 tqdm                # Added by admin, required for general purpose
 requests            # Added by admin, required for general purpose
 metis               # Added by admin, required for graph partitioning
-pytorch-sparse      # Added by admin, required for SPMM
+torch-scatter       # Added by admin, required for SPMM
+torch-sparse        # Added by admin, required for SPMM
 
