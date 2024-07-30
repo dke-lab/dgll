@@ -10,7 +10,6 @@ PyTorch is already included as a backend in the dgll library to ensure consisten
 """
 from dgll import backend as F
 
-F.set_printoptions(threshold=10)
 # Load the graph
 # You can download cora.graph and products.graph from the server
 
@@ -56,12 +55,12 @@ print(test_nodes)
 
 # Output
 # [[809, 1217, 1218], [], [2, 114, 516, 541], [88, 91, 200, 226, 728], [2, 89, 121, 182, 208], [505, 582]]
-# tensor([[0., 0., 0., 0., 0., 0.],
-#         [0., 0., 0., 0., 0., 0.],
-#         [0., 1., 0., 0., 0., 0.],
-#         [0., 0., 0., 0., 0., 0.],
-#         [0., 1., 0., 0., 0., 0.],
-#         [0., 0., 0., 0., 0., 0.]])
+# tensor([[0, 0, 0, 0, 0, 0],
+#         [0, 0, 0, 0, 0, 0],
+#         [0, 1, 0, 0, 0, 0],
+#         [0, 0, 0, 0, 0, 0],
+#         [0, 1, 0, 0, 0, 0],
+#         [0, 0, 0, 0, 0, 0]], dtype=torch.int32)
 # tensor([1, 4, 4, 6, 4, 4])
 # tensor([[0, 0, 0,  ..., 0, 0, 0],
 #         [0, 0, 0,  ..., 0, 0, 0],
