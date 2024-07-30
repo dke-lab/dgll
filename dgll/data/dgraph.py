@@ -71,7 +71,7 @@ class DGraph(object):
         Returns:
             torch.Tensor: A 2-dimensional tensor representing the adjacency matrix of the induced subgraph.
         """
-        result = F.zeros(nodes.size(0), nodes.size(0))
+        result = F.zeros(nodes.size(0), nodes.size(0), dtype=F.int32)
         mapping = {j.item(): i for i, j in enumerate(nodes)}
         for node in nodes:
             result[
