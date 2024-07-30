@@ -1,1 +1,6 @@
-torch   # Added by admin on 2024-07-29, Needed for backend
+numpy               # Added by admin, required for general purpose numerical computation
+tqdm                # Added by admin, required for general purpose
+requests            # Added by admin, required for general purpose
+metis               # Added by admin, required for graph partitioning
+pytorch-sparse      # Added by admin, required for SPMM
+

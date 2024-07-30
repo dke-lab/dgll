@@ -1,3 +1,5 @@
+from .. import backend as F
+
 """
 This `DGraph` class represents a graph data structure. Here's a summary of what each method does:
 
@@ -57,6 +59,25 @@ class DGraph(object):
         result = []
         for node in nodes:
             result.append(self.edges[node.item()])
+        return result
+
+    def get_induced_subgraph(self, nodes):
+        """
+        Get the induced subgraph of the graph induced by the given nodes.
+
+        Parameters:
+            nodes (torch.Tensor): A 1-dimensional tensor of node indices.
+
+        Returns:
+            torch.Tensor: A 2-dimensional tensor representing the adjacency matrix of the induced subgraph.
+        """
+        result = F.zeros(nodes.size(0), nodes.size(0))
+        mapping = {j.item(): i for i, j in enumerate(nodes)}
+        for node in nodes:
+            result[
+                [mapping[node.item()]],
+                [mapping[edge] for edge in self.edges[node.item()] if edge in mapping],
+            ] = 1
         return result
 
     def get_labels(self, nodes):

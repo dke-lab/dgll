@@ -1,58 +1,33 @@
 import pickle
 
 """
-NOTE 1: BACKEND
-    - Do not use "import torch" directly.
-    - Instead, use "from dgll import backend as F".
-    - In your code, refer to PyTorch functions using "F." (e.g., "F.tensor").
-    - PyTorch is integrated as a backend in the dgll library to ensure consistency and support for multiple backends.
-
-NOTE 2: DOCUMENTATION
-    - Pay close attention to source code formatting and adhere to coding standards.
-    - Avoid spaghetti code; ensure your code is clean and maintainable.
-    - Use Object-Oriented Design principles.
-    - Ensure that all User Api functions and classes are properly documented.
-    - Final documentation will be generated from the source code.
-    - For sample documentation, refer to dgll/data/dgraph.py.
-
-NOTE 3: MODULARITY
-    - This library is designed to be modular. Maintain proper modularity in your code.
-    - Ensure any new source files are placed in their appropriate locations, are accessible to other modules, and are properly named, formatted, and documented.
-
-NOTE 4: OPEN SOURCE GUIDELINES
-    - Strictly follow Open Source Guidelines.
-    - The code will undergo a plagiarism check.
-    - Do not use DGL or any other third-party libraries.
-    - You may use PyTorch for data loading, neural network operations, etc.
-    - If you must borrow code, make sure it is marked, properly cited, and attributed to the original author.
-
-NOTE 5: HOW TO USE THE REPOSITORY
-    - Create a virtual environment.
-    - Clone the repository.
-    - Exclude virtual environment files/directories using ".gitignore" to avoid them being pushed to GitHub.
-    - Add the names and versions of any new modules installed using pip to the "requirements.txt" file.
-    - Please do not commit your changes directly to the main code base. Instead, issue a Pull Request to merge your changes. This allows us to review and discuss the changes before integrating them into the main codebase.
-    - Every merge request will undergo a thorough review, ensuring code quality, proper documentation, formatting, and functionality before merging. Please consider this process carefully before issuing a merge request, as timely review is crucial.
-    - If you encounter any issues with code owned by others, please create an issue and contact the responsible person for resolution.
-    - For feature requests, please use the Discussion Board.
-    - Please ensure you provide a proper summary before committing your changes.
-
-NOTE 5: IDENTIFICATION AND ATTRIBUTION
-    - Please add your name, date, and version at the top of each source file you own. Additionally, ensure to include this information for any changes you make in code owned by others.
-    - Also, include your name in the comments or documentation for any changes you make to code owned by others for identification and attribution purposes.
+NOTE: VERY IMPORTANT
+--------------------
+Do not use "import torch"
+Instead, use "from dgll import backend as F"
+In your code, use "F.tensor" or any PyTorch functions using "F."
+PyTorch is already included as a backend in the dgll library to ensure consistency and the possibily of multiple backends.
 """
-
 from dgll import backend as F
 
+F.set_printoptions(threshold=10)
 # Load the graph
 # You can download cora.graph and products.graph from the server
+
+# Cora
 g = pickle.load(open("cora.graph", "rb"))
 
+# ogbn-products
+# g = pickle.load(open("products.graph", "rb"))
+
 # A set of node IDs
-nodes = F.tensor([0, 5, 6, 9, 23])
+nodes = F.tensor([0, 2, 5, 6, 9, 23])
 
 # Get the neighbors of the nodes
 neighbors = g.get_neighbors(nodes)
+
+# Get Induced Subgraph
+induced_subgraph = g.get_induced_subgraph(nodes)
 
 # Get the labels of the nodes
 labels = g.get_labels(nodes)
@@ -71,6 +46,7 @@ test_nodes = g.get_test_nodes()
 
 # Print the results
 print(neighbors)
+print(induced_subgraph)
 print(labels)
 print(features)
 print(train_nodes)
@@ -79,9 +55,16 @@ print(test_nodes)
 
 
 # Output
-# [[809, 1217, 1218], [2, 114, 516, 541], [88, 91, 200, 226, 728], [2, 89, 121, 182, 208], [505, 582]]
-# tensor([1, 4, 6, 4, 4])
+# [[809, 1217, 1218], [], [2, 114, 516, 541], [88, 91, 200, 226, 728], [2, 89, 121, 182, 208], [505, 582]]
+# tensor([[0., 0., 0., 0., 0., 0.],
+#         [0., 0., 0., 0., 0., 0.],
+#         [0., 1., 0., 0., 0., 0.],
+#         [0., 0., 0., 0., 0., 0.],
+#         [0., 1., 0., 0., 0., 0.],
+#         [0., 0., 0., 0., 0., 0.]])
+# tensor([1, 4, 4, 6, 4, 4])
 # tensor([[0, 0, 0,  ..., 0, 0, 0],
+#         [0, 0, 0,  ..., 0, 0, 0],
 #         [0, 0, 0,  ..., 0, 0, 0],
 #         [0, 0, 0,  ..., 0, 0, 0],
 #         [0, 0, 0,  ..., 0, 0, 0],
