@@ -14,7 +14,7 @@ from dgll import backend as F
 # You can download cora.graph and products.graph from the server
 
 # Cora
-g = pickle.load(open("cora.graph", "rb"))
+g = pickle.load(open("dgll/dataset/cora.graph", "rb"))
 
 # ogbn-products
 # g = pickle.load(open("products.graph", "rb"))
