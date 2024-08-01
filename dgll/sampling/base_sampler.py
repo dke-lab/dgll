@@ -57,7 +57,6 @@ class Base_sampler(object):
         subg = self._subgraph(nodes, random_neighbors)
         return subg
 
-
 class sugbraph():
     """"
     Base class for generating subgraphs
@@ -97,3 +96,8 @@ class sugbraph():
         all_nodes = F.cat([subg.nodes() for subg in subgs])
         unique_nodes = F.unique(all_nodes)
         return g.get_features(unique_nodes)
+
+    def get_adj(self, g, subgs):
+        all_nodes = F.cat([subg.nodes() for subg in subgs])
+        unique_nodes = F.unique(all_nodes)
+        return g.get_induced_subgraph(unique_nodes)
