@@ -1,5 +1,6 @@
 from dgll import backend as F
 import random
+
 class Base_sampler(object):
     """Base class for graph samplers.
     All graph samplers must subclass this class and override the ``sample``
