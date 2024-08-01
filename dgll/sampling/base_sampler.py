@@ -153,3 +153,7 @@ class sugbraph():
         return self.graph_nodes
 
 
+    def get_features(self, g, subgs):
+        all_nodes = F.cat([subg.nodes() for subg in subgs])
+        unique_nodes = F.unique(all_nodes)
+        return g.get_features(unique_nodes)
