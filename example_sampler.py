@@ -6,6 +6,8 @@ fanout = [2, 3]
 seed_nodes = F.tensor([5, 4, 2, 9, 6, 7])
 nsampler = DGLLNeighborSampler(fanout)
 
+print(g.feature_size())
+
 input_nodes, seed_nodes, subgs = nsampler.sample(g,seed_nodes)
 print(input_nodes)
 # tensor([1161,    4,    3,   13,  111,   89,  204,  111,   13,  200,  236,  200,
