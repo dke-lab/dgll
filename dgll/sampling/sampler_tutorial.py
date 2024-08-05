@@ -4,4 +4,5 @@ fanout = [2, 3]
 seed_nodes = F.tensor([5, 6, 2])
 nsampler = DGLLNeighborSampler(fanout)
 
+# print
 print(nsampler.sample(g,seed_nodes))

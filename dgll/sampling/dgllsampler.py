@@ -17,5 +17,12 @@ class DGLLNeighborSampler(Base_sampler):
             seed_nodes = subg.src_nodes()
             subgs.insert(0, subg)
             input_nodes = seed_nodes
+
         return input_nodes, output_nodes, [subgs, subg.get_features(g, subgs)]
 
+g = pickle.load(open("../dataset/cora.graph", "rb"))
+fanout = [2, 3]
+seed_nodes = F.tensor([5, 6, 2])
+nsampler = DGLLNeighborSampler(fanout)
+
+print(nsampler.sample(g,seed_nodes))
