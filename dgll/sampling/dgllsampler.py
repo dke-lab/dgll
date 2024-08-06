@@ -1,6 +1,6 @@
 import pickle
 from dgll import backend as F
-from base_sampler import Base_sampler
+from .base_sampler import Base_sampler
 
 class DGLLNeighborSampler(Base_sampler):
     def __init__(self, fanouts):
@@ -17,5 +17,6 @@ class DGLLNeighborSampler(Base_sampler):
             seed_nodes = subg.src_nodes()
             subgs.insert(0, subg)
             input_nodes = seed_nodes
-        return input_nodes, output_nodes, [subgs, subg.get_features(g, subgs)]
+
+        return input_nodes, output_nodes, subgs
 
