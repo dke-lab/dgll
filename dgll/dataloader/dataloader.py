@@ -22,3 +22,13 @@ class DataLoader:
 
     def __iter__(self):
         return self.sample()
+
+# Example Usage
+
+# dataloader = dgll.dataloader.Dataloader(
+#     Dgraph,
+#     train_nodes,
+#     sampler,
+#     batch_size = args.batch_size,
+#     shuffle = True,
+# )
