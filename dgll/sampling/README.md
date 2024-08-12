@@ -93,7 +93,7 @@ The code below implements a neighbor sampler:
 
 
 ```
-class DGLLNeighborSampler(Base_sampler):
+class MyCusomSampler(Base_sampler):
     def __init__(self, fanouts):
       super().__init__()
       self.fanouts = fanouts
@@ -116,10 +116,10 @@ To use this sampler
 ```
 g = path to g
 train_nodeIDs = give training nodes IDs
-dgllsampler =  DGLLNeighborSampler([5, 6])
+mysampler =  MyCusomSampler([5, 6])
 
-dglldataloader = your data loader
+mydataloader = your data loader with g, train_nodeIDS, and mysampler
 
-for i, input_nodes, output_nodes, subgs in enumerate(dataloader):
-  trainGNN(input_nodes, output_nodes, subgs)
+for i, input_nodes, output_nodes, subgs in enumerate(mydataloader):
+  trainMyGNN(input_nodes, output_nodes, subgs)
 ```
