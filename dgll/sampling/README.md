@@ -116,7 +116,7 @@ To use this sampler
 ```
 g = path to g
 train_nodeIDs = give training nodes IDs
-mysampler =  MyCusomSampler([5, 6])
+mysampler =  MyCustomSampler([5, 6])
 
 mydataloader = your data loader with g, train_nodeIDS, and mysampler
 
