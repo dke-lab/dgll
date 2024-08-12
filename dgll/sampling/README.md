@@ -80,12 +80,12 @@ The `Base_sampler` class provides a foundation for implementing custom graph sam
 To implement custom graph samplers, you need to subclass the `dgll.sampling.base_sampler` base class and override its abstract sample method. This method should accept the following arguments:
 
 ```
-def sample(self, g, nodes):
+def sample(self, g, seed_nodes):
 pass
 ```
 
 - **g**: The original DGLLGraph (DGraph) from which to sample.
-- **nodes**: The nodes of the current mini-batch.
+- **seed_nodes**: The seed nodes of the current mini-batch.
 
 The function should return the mini-batch of samples.
 
