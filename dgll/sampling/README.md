@@ -67,3 +67,59 @@ The neighbor sampler plays a key role in creating a subgraph based on the input 
 - **Subgraph Details:** The sampled subgraph's source and destination data are printed for both the first and second layers of neighbors.
 
 This example illustrates how to effectively use the `DGLLNeighborSampler` to sample subgraphs from a larger graph in the `dgll` library.
+
+
+
+### Implementation of Custom Samplers
+
+The `base sampler` modules provides the required contituents for graph sampling, i.e., related classes and methods. 
+
+The `Base_sampler` class provides a foundation for implementing custom graph samplers. It also includes utilities for creating subgraphs and generating neighbors for given nodes.
+
+
+To implement custom graph samplers, you need to subclass the dgl.sampling.BaseSampler base class and override its abstract sample method. This method should accept the following arguments:
+
+```
+def sample(self, g, nodes):
+pass
+```
+
+- **g**: The original DGLGraph from which to sample.
+- **nodes**: The nodes of the current mini-batch.
+
+The function should return the mini-batch of samples.
+
+The code below implements a neighbor sampler:
+
+
+```
+class DGLLNeighborSampler(Base_sampler):
+    def __init__(self, fanouts):
+      super().__init__()
+      self.fanouts = fanouts
+
+    def sample(self, g, seed_nodes):
+        output_nodes = seed_nodes
+        subgs = []
+        print(g, seed_nodes)
+        for fanout in reversed(self.fanouts):
+            # Sample a fixed number of neighbors of the current seed nodes.
+            subg = self.sample_neighbours(g, seed_nodes, fanout)
+            seed_nodes = subg.src_nodes()
+            subgs.insert(0, subg)
+            input_nodes = seed_nodes
+        return input_nodes, output_nodes, subgs
+```
+
+
+To use this sampler
+```
+g = path to g
+train_nodeIDs = give training nodes IDs
+dgllsampler =  DGLLNeighborSampler([5, 6])
+
+dglldataloader = your data loader
+
+for i, input_nodes, output_nodes, subgs in enumerate(dataloader):
+  trainGNN(input_nodes, output_nodes, subgs)
+```
