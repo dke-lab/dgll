@@ -84,7 +84,7 @@ def sample(self, g, nodes):
 pass
 ```
 
-- **g**: The original DGLGraph from which to sample.
+- **g**: The original DGLLGraph (DGraph) from which to sample.
 - **nodes**: The nodes of the current mini-batch.
 
 The function should return the mini-batch of samples.
