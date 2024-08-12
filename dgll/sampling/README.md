@@ -70,7 +70,7 @@ This example illustrates how to effectively use the `DGLLNeighborSampler` to sam
 
 
 
-### Implementation of Custom Samplers
+### Development of Custom Samplers
 
 The `base sampler` modules provides the required contituents for graph sampling, i.e., related classes and methods. 
 
