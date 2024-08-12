@@ -77,7 +77,7 @@ The `base sampler` modules provides the required contituents for graph sampling,
 The `Base_sampler` class provides a foundation for implementing custom graph samplers. It also includes utilities for creating subgraphs and generating neighbors for given nodes.
 
 
-To implement custom graph samplers, you need to subclass the dgl.sampling.BaseSampler base class and override its abstract sample method. This method should accept the following arguments:
+To implement custom graph samplers, you need to subclass the `dgll.sampling.base_sampler` base class and override its abstract sample method. This method should accept the following arguments:
 
 ```
 def sample(self, g, nodes):
