@@ -97,6 +97,12 @@ class sugbraph():
         """
         return self.graph_nodes
 
+    def num_src_nodes(self):
+        return self.src_data.shape[0]
+
+    def num_dst_nodes(self):
+        return self.dst_data.shape[0]
+
     def get_features(self, g, subgs):
         all_nodes = F.cat([subg.nodes() for subg in subgs])
         unique_nodes = F.unique(all_nodes)
