@@ -1,12 +1,12 @@
-Feature Cache Module for GNN Training
-
-Prerequisite:
+**Feature Cache Module for GNN Training
+**
+**Prerequisite:**
 
 Python 3
 
 PyTorch (v >= 1.3)
 
-Files:
+**Files:**
 
 gcn.py file contains our optimized model with feature cache engine for gcn model
 
@@ -16,7 +16,7 @@ dgl_gcn.py file contains pure dgl framework for gcn model
 
 dgl_gs.py file contains pure dgl framework for GraphSage model
 
-Steps:
+**Steps:**
 
 Install python and required libraries.
 
@@ -29,7 +29,7 @@ Run dgl_gcn.py to check the training time for pure DGL framework with GCN model
 Run dgl_gs.py to check the training time for pure DGL framework with GraphSage model
 
 
-Example Command to run the script:
+**Example Command to run the script:**
 
 $ python3 gcn.py --dataset xxx/datasetfolder
 
