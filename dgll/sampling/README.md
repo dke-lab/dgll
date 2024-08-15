@@ -123,3 +123,10 @@ mydataloader = your data loader with g, train_nodeIDS, and mysampler
 for i, input_nodes, output_nodes, subgs in enumerate(mydataloader):
   trainMyGNN(input_nodes, output_nodes, subgs)
 ```
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+* [Data and Knowlege Engineering Lab (DKE)](http://dke.khu.ac.kr/)
+<p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,0 +1,70 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dgllge"
+version = "1.0.3"
+description = "Graph Embedding Models"
+readme = "README.md"
+authors = [{ name = "Irfan Ullah", email = "irfan@khu.ac.kr" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7",
+]
+keywords = ["graph embedding", "embedding", "ge"]
+
+dependencies = [
+    "fastdtw>=0.3.4",
+    "gensim>=4.2.0",
+    "matplotlib>=3.5.2",
+    "networkx>=2.6.3",
+    "numpy>=1.21.6",
+    "pandas>=1.3.5",
+    "scikit-learn>=1.0.2",
+    "scipy>=1.7.3",
+    "torch>=1.11.0",
+    "torchvision>=0.12.0",
+]
+requires-python = ">=3.7"
+
+[project.urls]
+Homepage = "https://github.com/sahibzada-irfanullah"
+repository    = "https://github.com/sahibzada-irfanullah/Graph-Embedding"
+documentation = "https://github.com/sahibzada-irfanullah/Graph-Embedding/blob/main/README.md"
+
+[project.scripts]
+ge = "ge.main:main"
+
+[tool.bumpver]
+current_version = "1.0.3"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = false
+tag = false
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"',
+]
+"src/ge/__init__.py" = ["{version}"]
+
+"setup.cfg" = [
+    'version = {version}',
+]
+
+"README.md" = [
+    "{version}",
+]
+
+[tool.mypy]
+strict = true
+
+[[tool.mypy.overrides]]
+module                 = "dgllge"
+ignore_missing_imports = true
