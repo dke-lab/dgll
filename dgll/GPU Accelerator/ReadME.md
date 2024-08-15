@@ -1,7 +1,7 @@
 
 # Training GNN in Parallel on Multiple GPUs
 
-This repository contains a script for training Graph Neural Networks (GNNs) in parallel on multiple GPUs. The script allows users to specify various training parameters, such as the dataset, number of GPUs, GNN model, and other hyperparameters through command-line arguments.
+This repository contains a script for training Graph Neural Networks (GNNs) in parallel on multiple GPUs. The script allows users to specify various training parameters, such as the dataset, number of GPUs, GNN model, and other hyperparameters using main_gpu_accelerator.py.
 
 ## Requirements
 
