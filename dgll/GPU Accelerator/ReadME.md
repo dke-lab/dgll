@@ -1,29 +1,36 @@
 
 # Training GNN in Parallel on Multiple GPUs
 
-This repository contains a script for training Graph Neural Networks (GNNs) in parallel on multiple GPUs. The script allows users to specify various training parameters, such as the dataset, number of GPUs, GNN model, and other hyperparameters using main_gpu_accelerator.py.
+This repository contains a script for training Graph Neural Networks (GNNs) in parallel on multiple GPUs.
 
 ## Requirements
 
 - Python 3.7 or higher
 - PyTorch 1.9 or higher
+## Files
 
-### Arguments
-Set the following arguments in main_gpu_accelerator.py, and run the script.
+buffer_queues.py file contains queueing pipeline for buffering batch
 
-- `--dataset` (str): Specify the dataset name. Default is `'ogbn-arxiv'`.
+GCN.py file contains our optimized model with GPU accelerator engine for GCN model
 
-- `--fanout` (list): Specify a list of the number of neighbors that a node in a graph is connected to in each layer of the GNN model. Default is `[4,4]`.
+GraphSAGE.py file contains our optimized model with GPU accelerator engine for GraphSAGE model
 
-- `--epoch` (int): Specify the number of epochs for training. Default is `4`.
+FastGCN.py file contains our optimized model with GPU accelerator engine for FastGCN model
 
-- `--num_gpus` (int): Specify the number of GPUs to use for parallel training. Default is `1`.
+FastGCNFlat.py file contains our optimized model with GPU accelerator engine for FastGCNFlat model
 
-- `--batch_size` (int): Specify the batch size for training. Default is `1024`.
+FastGCNWrs.py file contains our optimized model with GPU accelerator engine for FastGCNWrs model
 
-- `--buffer_size` (int): Specify the buffer size. Default is `4`.
+FastGCNFlatWrs.py file contains our optimized model with GPU accelerator engine for FastGCNFlatWrs model
 
-- `--GNN_Model` (str): Specify the GNN model to use. Options are `GCN_Model`, `GraphSAGE_Model`, or provide a custom GNN model class name. Default is `'Custom_GNN_Model'`.
+Ladies.py file contains our optimized model with GPU accelerator engine for Ladies model
+
+LadiesFlat.py file contains our optimized model with GPU accelerator engine for LadiesFlat model
+
+LadiesWrs.py file contains our optimized model with GPU accelerator engine for LadiesWrs model
+
+LadiesFlatWrs.py file contains our optimized model with GPU accelerator engine for LadiesFlatWrs model
+
 
 
 <!-- ACKNOWLEDGMENTS -->

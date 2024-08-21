@@ -9,14 +9,14 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="irfanserver@163.180.118.164:22">
+      <paths name="irfan@163.180.160.121:22 password">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="irfanserver@163.180.118.164:22 (2)">
+      <paths name="irfan@163.180.160.63:22 password">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
@@ -30,35 +30,7 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="irfanserver@163.180.118.164:22 password (1)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="irfanserver@163.180.118.164:22 password (2)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="irfanserver@163.180.118.164:22 password (3)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="irfanserver@163.180.118.164:22 password (4)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="server2@163.180.160.117:22">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
