@@ -1,13 +1,13 @@
 
-### GPU Accelerator Module for GNN Training
+**GPU Accelerator Module for GNN Training**
 
 
-### Requirements
+**Requirements**
 
 - Python 3.7 or higher
 - PyTorch 1.9 or higher
 
-### Files
+**Files**
 
 buffer_queues.py file contains queueing pipeline for buffering batch
 
@@ -31,13 +31,13 @@ LadiesWrs.py file contains our optimized model with GPU accelerator engine for L
 
 LadiesFlatWrs.py file contains our optimized model with GPU accelerator engine for LadiesFlatWrs model
 
-### How to run:
+**How to run:**
 
 Set up the environment by installing Python and required libraries
 
 Run ```Python {file_name}.py``` to run the model with our GPU accelerator engine 
 
 <!-- ACKNOWLEDGMENTS -->
-### Acknowledgments
+**Acknowledgments**
 * [Data and Knowlege Engineering Lab (DKE)](http://dke.khu.ac.kr/)
 <p align="right">(<a href="#top">back to top</a>)</p>
