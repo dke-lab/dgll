@@ -1,13 +1,13 @@
 
-# Training GNN in Parallel on Multiple GPUs
+### GPU Accelerator Engine for GNN Training
 
-This repository contains a script for training Graph Neural Networks (GNNs) in parallel on multiple GPUs.
 
-## Requirements
+### Requirements
 
 - Python 3.7 or higher
 - PyTorch 1.9 or higher
-## Files
+
+### Files
 
 buffer_queues.py file contains queueing pipeline for buffering batch
 
