@@ -33,9 +33,9 @@ LadiesFlatWrs.py file contains our optimized model with GPU accelerator engine f
 
 ### How to run:
 
-Set up the up by installing Python and required libraries
+Set up the environment by installing Python and required libraries
 
-Run 'Python {file_name}.py' to run the model with our GPU accelerator engine 
+Run ```Python {file_name}.py``` to run the model with our GPU accelerator engine 
 
 <!-- ACKNOWLEDGMENTS -->
 ### Acknowledgments
