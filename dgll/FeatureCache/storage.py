@@ -17,7 +17,7 @@ class GraphCacheServer:
   def __init__(self, graph, node_num, nid_map, gpuid):
     """
     Paramters:
-      graph:   should be created from `dgl.contrib.graph_store`
+      graph:   DGraph
       node_num: should be sub graph node num
       nid_map: torch tensor. map from local node id to full graph id.
                used in fetch features from remote
