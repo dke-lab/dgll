@@ -41,8 +41,6 @@ def record_result_new(args, text_filename, total_time_all, samp_num_list, valid_
     dir_name = 'Results/{}/{}'.format(args.dataset, 'result')
     if not os.path.isdir(dir_name):
         os.makedirs(dir_name)
-    with open('{}/{}/{}/{}'.format("Results", args.dataset, 'result', text_filename), 'a') as f:
-        sys.stdout = f # Change the standard output to the file we created.
         np.set_printoptions(precision=5)
         print(args)
         print("{}_repeat {} times".format(args.dataset, args.n_trial))
@@ -75,9 +73,6 @@ def record_result_new(args, text_filename, total_time_all, samp_num_list, valid_
         print(np.array([np.mean(total_time_all), np.std(total_time_all) / np.sqrt(args.n_trial)]))
         print("\n")
         print("_" * 20)
-
-    sys.stdout = original_stdout # Reset the standard output to its original value
-
     # record the data to .pkl
 
     result_dict = dict()
@@ -225,3 +220,45 @@ def normalize_lap(adj):
     d_mat_inv_sqrt = sp.diags(d_inv_sqrt, 0)
     adj = adj.dot(d_mat_inv_sqrt).transpose().dot(d_mat_inv_sqrt)
     return adj
+
+def load_partition_book(path, graph_name):
+    with open('{}/{}.json'.format(path, graph_name), 'r') as f:
+        # load_community_book
+        return json.load(f)
+
+
+def load_partition(path, graph_name, part_id, load_feat = True):
+    gpb = load_partition_book(path, graph_name)
+    if part_id > gpb['num_parts'] - 1:
+        print("Partition id is greater than available partitions")
+        return
+    g = dgl.load_graphs(os.path.join(path, 'part' + str(part_id), "graph.bin"))[0][0]
+    if not load_feat:
+        g.ndata.pop("feat")
+        return g
+    return g
+
+def load_community_data(path, graph_name):
+    return torch.load(os.path.join(path, graph_name + "_communities_data.pt"))
+
+def get_community_map_pt(lcb):
+    return torch.tensor(lcb['communities_id_map'])
+
+def load_community_book(path, graph_name):
+    os.path.join(path, graph_name + "_communities_metadata.json")
+    with open(os.path.join(path, graph_name + "_communities_metadata.json")) as f:
+        # load_community_book
+        return json.load(f)
+
+def part2nids(gpb, part_id):
+
+    return torch.arange(gpb['node_map']['_N'][part_id][0], gpb['node_map']['_N'][part_id][-1], 1)
+
+def load_subteatures(nfeat, nlabels, ranges, seeds = None, device = "cpu"):
+    batch_feat = nfeat[ranges[0]:ranges[-1]+1, :].to(device)
+    if seeds is None:
+        batch_labels = nlabels[ranges[0]:ranges[-1]+1].to(device)
+    else:
+        batch_labels = nlabels[seeds[0]: seeds[-1]+1].to(device)
+
+    return batch_feat, batch_labels
