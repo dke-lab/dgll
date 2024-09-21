@@ -1,8 +1,8 @@
 import argparse
-from cog_train import *
+from CommGNN_train import *
 
 argparser = argparse.ArgumentParser()
-argparser.add_argument('--dataset', type=str, default='arxiv')
+argparser.add_argument('--dataset', type=str, default='products')
 argparser.add_argument('--path', type=str, default='dataset/relabel_dataset/',
                        help='Dataset path: provide path to a relable dataset')
 argparser.add_argument('--batch_size', type=int, help='size of output node in a batch', default=512)
