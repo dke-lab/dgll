@@ -93,8 +93,14 @@ run_train(args)
 ##### Run the code
 From the main directory excute the following command:
 ```
-python CommGNN.py
+python CommGCN.py
 ```
+or 
+
+```
+python CommSAGE.py
+```
+
 #### Results and Output files
 All the files related to COG will be stored on a given path under the [graph] folder. It will contain the following three files. For example, as shown below:
 
