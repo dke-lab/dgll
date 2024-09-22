@@ -11,25 +11,25 @@
 
 buffer_queues.py file contains queueing pipeline for buffering batch
 
-GCN.py file contains our optimized model with GPU accelerator engine for GCN model
+MQGCN.py file contains our optimized model with GPU accelerator engine for GCN model
 
-GraphSAGE.py file contains our optimized model with GPU accelerator engine for GraphSAGE model
+MQGraphSAGE.py file contains our optimized model with GPU accelerator engine for GraphSAGE model
 
-FastGCN.py file contains our optimized model with GPU accelerator engine for FastGCN model
+MQFastGCN.py file contains our optimized model with GPU accelerator engine for FastGCN model
 
-FastGCNFlat.py file contains our optimized model with GPU accelerator engine for FastGCNFlat model
+MQFastGCNFlat.py file contains our optimized model with GPU accelerator engine for FastGCNFlat model
 
-FastGCNWrs.py file contains our optimized model with GPU accelerator engine for FastGCNWrs model
+MQFastGCNWrs.py file contains our optimized model with GPU accelerator engine for FastGCNWrs model
 
-FastGCNFlatWrs.py file contains our optimized model with GPU accelerator engine for FastGCNFlatWrs model
+MQFastGCNFlatWrs.py file contains our optimized model with GPU accelerator engine for FastGCNFlatWrs model
 
-Ladies.py file contains our optimized model with GPU accelerator engine for Ladies model
+MQLadies.py file contains our optimized model with GPU accelerator engine for Ladies model
 
-LadiesFlat.py file contains our optimized model with GPU accelerator engine for LadiesFlat model
+MQLadiesFlat.py file contains our optimized model with GPU accelerator engine for LadiesFlat model
 
-LadiesWrs.py file contains our optimized model with GPU accelerator engine for LadiesWrs model
+MQLadiesWrs.py file contains our optimized model with GPU accelerator engine for LadiesWrs model
 
-LadiesFlatWrs.py file contains our optimized model with GPU accelerator engine for LadiesFlatWrs model
+MQLadiesFlatWrs.py file contains our optimized model with GPU accelerator engine for LadiesFlatWrs model
 
 **How to run:**
 
