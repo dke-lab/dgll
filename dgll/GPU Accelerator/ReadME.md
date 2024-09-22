@@ -82,8 +82,6 @@ argparser.add_argument('--batch-num', type=int, default= 10,
                        help='Maximum Batch Number')
 argparser.add_argument('--o_iters', type=int, default=2,
                     help='Number of iteration to run on a batch')
-argparser.add_argument('--record-f1', action='store_false',
-                       help='whether record the f1 score')
 argparser.add_argument('--samp_type', type=str, default='hybrid', help='hybrid')
 argparser.add_argument('--gpu', type=int, default=0, help="GPU device ID. Use -1 for CPU training")
 args = argparser.parse_args()
