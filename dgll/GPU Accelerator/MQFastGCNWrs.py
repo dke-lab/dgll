@@ -1,16 +1,15 @@
 import os
-os.environ['DGLBACKEND'] = 'pytorch'
-import dgl
+os.environ['dgllBACKEND'] = 'pytorch'
+import dgll
 import torch
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
-from dgl.nn import SAGEConv
-from ogb.nodeproppred import DglNodePropPredDataset
+from dgll.nn import SAGEConv
 import tqdm
 import sklearn.metrics
 import time
-from dgl.nn import GraphConv
+from dgll.nn import GraphConv
 import torch.multiprocessing as mp
 # from torch.multiprocessing import Lock, Condition, Process, Queue
 # from torch.multiprocessing import Process as Thread
@@ -20,13 +19,13 @@ from queue import Queue
 import asyncio
 from contextlib import nullcontext
 from buffer_queues import sample_generator, sample_consumer
-import dgl
+import dgll
 from utils import matrix_row_normalize, estWRS_weights, normalize_lap
 import scipy.sparse as sp
 import numpy as np
 import torch
 
-dataset = DglNodePropPredDataset('ogbn-arxiv')
+dataset = dgllNodePropPredDataset('ogbn-arxiv')
 batch_size = 1023
 n_samp = 512
 samp_growth_rate = 2
@@ -35,7 +34,7 @@ num_gpus = 1
 
 graph, node_labels = dataset[0]
 # Add reverse edges since ogbn-arxiv is unidirectional.
-graph = dgl.add_reverse_edges(graph)
+graph = dgll.add_reverse_edges(graph)
 graph.ndata['label'] = node_labels[:, 0]
 
 node_features = graph.ndata['feat']
@@ -61,7 +60,7 @@ class Model(nn.Module):
         h = self.conv2(mfgs[1], (h, h_dst))
         return h
 
-class FastGCNSamplerWrs(dgl.dataloading.Sampler):
+class FastGCNSamplerWrs(dgll.dataloading.Sampler):
     def __init__(self, fanouts, g, HW_row_norm = False, flat=False, wrs=False):
         super().__init__()
         self.fanouts = fanouts
@@ -94,7 +93,7 @@ class FastGCNSamplerWrs(dgl.dataloading.Sampler):
             # next_nodes_list = np.unique(np.concatenate((next_nodes_list, batch_nodes)))
             # adj = Q[: , next_nodes_list].multiply(1/prob[next_nodes_list]/s_num).tocsr()
 
-            subgs += [dgl.create_block(('csc', (adj.indptr, adj.indices, [])))]
+            subgs += [dgll.create_block(('csc', (adj.indptr, adj.indices, [])))]
 
             prev_nodes_list = subgs[-1].srcnodes()
         subgs.reverse()
@@ -164,7 +163,7 @@ def run(proc_id, devices, producer, consumer,  BUFFER_SIZE = 4):
     # but with one line of difference: use_ddp to enable distributed data parallel
     # data loading.
     sampler = FastGCNSamplerWrs(samp_num_list, graph, wrs=True)
-    train_dataloader = dgl.dataloading.DataLoader(
+    train_dataloader = dgll.dataloading.DataLoader(
         # The following arguments are specific to DataLoader.
         graph,              # The graph
         train_nids,         # The node IDs to iterate over in minibatches
@@ -178,7 +177,7 @@ def run(proc_id, devices, producer, consumer,  BUFFER_SIZE = 4):
         drop_last=False,    # Whether to drop the last incomplete batch
         num_workers=0       # Number of sampler processes
     )
-    valid_dataloader = dgl.dataloading.DataLoader(
+    valid_dataloader = dgll.dataloading.DataLoader(
         graph, valid_nids, sampler,
         device=device,
         use_ddp=False,

@@ -1,16 +1,15 @@
 import os
-os.environ['DGLBACKEND'] = 'pytorch'
-import dgl
+os.environ['dgllBACKEND'] = 'pytorch'
+import dgll
 import torch
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
-from dgl.nn import SAGEConv
-from ogb.nodeproppred import DglNodePropPredDataset
+from dgll.nn import SAGEConv
 import tqdm
 import sklearn.metrics
 import time
-from dgl.nn import GraphConv
+from dgll.nn import GraphConv
 import torch.multiprocessing as mp
 # from torch.multiprocessing import Lock, Condition, Process, Queue
 # from torch.multiprocessing import Process as Thread
@@ -20,11 +19,11 @@ from queue import Queue
 import asyncio
 from contextlib import nullcontext
 from buffer_queues import sample_generator, sample_consumer
-dataset = DglNodePropPredDataset('ogbn-arxiv')
+dataset = dgllNodePropPredDataset('ogbn-arxiv')
 
 graph, node_labels = dataset[0]
 # Add reverse edges since ogbn-arxiv is unidirectional.
-graph = dgl.add_reverse_edges(graph)
+graph = dgll.add_reverse_edges(graph)
 graph.ndata['label'] = node_labels[:, 0]
 
 node_features = graph.ndata['feat']
@@ -112,8 +111,8 @@ def run(proc_id, devices, producer, consumer,  BUFFER_SIZE = 4):
     # Define training and validation dataloader, copied from the previous tutorial
     # but with one line of difference: use_ddp to enable distributed data parallel
     # data loading.
-    sampler = dgl.dataloading.NeighborSampler([4, 4])
-    train_dataloader = dgl.dataloading.DataLoader(
+    sampler = dgll.dataloading.NeighborSampler([4, 4])
+    train_dataloader = dgll.dataloading.DataLoader(
         # The following arguments are specific to DataLoader.
         graph,              # The graph
         train_nids,         # The node IDs to iterate over in minibatches
@@ -127,7 +126,7 @@ def run(proc_id, devices, producer, consumer,  BUFFER_SIZE = 4):
         drop_last=False,    # Whether to drop the last incomplete batch
         num_workers=0       # Number of sampler processes
     )
-    valid_dataloader = dgl.dataloading.DataLoader(
+    valid_dataloader = dgll.dataloading.DataLoader(
         graph, valid_nids, sampler,
         device=device,
         use_ddp=False,

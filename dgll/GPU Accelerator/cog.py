@@ -1,7 +1,7 @@
 
 import datetime, sys
 import torch
-import dgl
+import dgll
 import numpy as np
 import igraph as ig
 import leidenalg as la
@@ -46,17 +46,17 @@ def relabel_groups(groups, path, graph_name, train_valid_test_ratio):
 
 
 
-def DGL_g_relabel(graph, nid_mapping, path, graph_name, cog_time):
+def dgll_g_relabel(graph, nid_mapping, path, graph_name, cog_time):
     src_node_list = graph.edges()[0]
     dst_node_list = graph.edges()[1]
-    relabel_graph.ndata['feat'], relabel_graph.ndata['label'] = reoder_DGL_gfeat_glabel(graph, nid_mapping)
+    relabel_graph.ndata['feat'], relabel_graph.ndata['label'] = reoder_dgll_gfeat_glabel(graph, nid_mapping)
     time_start= time.time()
     if os.path.exists(os.path.join(path, graph_name)):
-        dgl.save_graphs(os.path.join(path, graph_name, "graph.bin"), relabel_graph)
+        dgll.save_graphs(os.path.join(path, graph_name, "graph.bin"), relabel_graph)
     else:
         # create folder named as grapht_name
         os.makedirs(os.path.join(path, graph_name))
-        dgl.save_graphs(os.path.join(path, graph_name, "graph.bin"), relabel_graph)
+        dgll.save_graphs(os.path.join(path, graph_name, "graph.bin"), relabel_graph)
     cog_time["write data to disk"] = time.time() - time_start
     return relabel_graph, cog_time
 
@@ -96,9 +96,9 @@ def get_GPU_memory_in_Bytes(device):
     free_memory, total_memory = torch.cuda.mem_get_info(device= device)
     return free_memory, total_memory
 
-def from_iGraph_to_DGL(graph):
+def from_iGraph_to_dgll(graph):
     src_ids, dst_ids = zip(*igraph_graph.get_edgelist())
-    return dgl.graph((src_ids, dst_ids))
+    return dgll.graph((src_ids, dst_ids))
 
 def get_tensor_size_in_Bytes(tens):
     return tens.nelement() * tens.element_size()
@@ -146,7 +146,7 @@ def run_cog(args):
         dataset = load_arxiv(path)
         graph, node_labels = dataset[0]
         # Add reverse edges since ogbn-arxiv is unidirectional.
-        graph = dgl.add_reverse_edges(graph)
+        graph = dgll.add_reverse_edges(graph)
         graph.ndata['label'] = node_labels[:, 0]
         total_nodes = graph.number_of_nodes()
         train_valid_test_ratio = [54, 18, 28]
@@ -161,7 +161,7 @@ def run_cog(args):
         dataset = load_products(path)
         graph, node_labels = dataset[0]
         # Add reverse edges since ogbn-arxiv is unidirectional.
-        graph = dgl.add_reverse_edges(graph)
+        graph = dgll.add_reverse_edges(graph)
         # print(graph.edges(), graph.edges()[0].shape)
         # print(graph.ndata['feat'], graph.ndata['feat'].shape)
         graph.ndata['label'] = node_labels[:, 0]
@@ -188,7 +188,7 @@ def run_cog(args):
     else:
         print("WRONG DATA SET SELECTED: Select from pubmed/reddit/arxiv/prdoucts")
 
-    graph = dgl.add_self_loop(graph)
+    graph = dgll.add_self_loop(graph)
 
 
     node_features = graph.ndata['feat']
@@ -215,7 +215,7 @@ def run_cog(args):
 
     time_start= time.time()
     # print("converstion to iGraph started")
-    graph_ig = from_DGLg_to_iGraph(graph)
+    graph_ig = from_dgllg_to_iGraph(graph)
     # print("iGraph Conversion completed")
 
     # print("Gropu Identification started")
@@ -235,8 +235,8 @@ def run_cog(args):
     cog_time["Relabel communities"] = time.time() - time_start
     # print("Group relableing finished")
     time_start= time.time()
-    # print("DGL graph relabelling started")
-    graph, cog_time = DGL_g_relabel(graph, con_id_mapping, path, args.dataset, cog_time)
+    # print("dgll graph relabelling started")
+    graph, cog_time = dgll_g_relabel(graph, con_id_mapping, path, args.dataset, cog_time)
     cog_time["Relabel graph"] = time.time() - time_start
 
     cog_time["Total time"] = cog_time["data_load"] + cog_time["Find maximum size of a community"] + cog_time["Generate communities"] + \

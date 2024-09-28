@@ -1,16 +1,15 @@
 import os
-os.environ['DGLBACKEND'] = 'pytorch'
-import dgl
+os.environ['dgllBACKEND'] = 'pytorch'
+import dgll
 import torch
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
-from dgl.nn import SAGEConv
-from ogb.nodeproppred import DglNodePropPredDataset
+from dgll.nn import SAGEConv
 import tqdm
 import sklearn.metrics
 import time
-from dgl.nn import GraphConv
+from dgll.nn import GraphConv
 import torch.multiprocessing as mp
 # from torch.multiprocessing import Lock, Condition, Process, Queue
 # from torch.multiprocessing import Process as Thread
