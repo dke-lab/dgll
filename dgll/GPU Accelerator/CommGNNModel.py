@@ -1,8 +1,8 @@
 import torch as th
 import torch.nn as nn
 import torch.functional as F
-import dgl
-import dgl.nn as dglnn
+import dgll
+import dgll.nn as dgllnn
 import sklearn.linear_model as lm
 import sklearn.metrics as skm
 import tqdm
@@ -20,12 +20,12 @@ class GCN(nn.Module):
 
         assert n_layers > 1
         # input layer
-        self.layers.append(dglnn.GraphConv(in_feats, n_hidden, activation=activation))
+        self.layers.append(dgllnn.GraphConv(in_feats, n_hidden, activation=activation))
         # hidden layer
         for i in range(1, n_layers - 1):
-            self.layers.append(dglnn.GraphConv(n_hidden, n_hidden, activation=activation))
+            self.layers.append(dgllnn.GraphConv(n_hidden, n_hidden, activation=activation))
         # output layer
-        self.layers.append(dglnn.GraphConv(n_hidden, n_classes))
+        self.layers.append(dgllnn.GraphConv(n_hidden, n_classes))
 
         self.dropout = nn.Dropout(dropout)
 
@@ -51,7 +51,7 @@ class GCN(nn.Module):
                 h = self.dropout(h)
 
             # slice out the input nodes for block
-            internal_input_nids = block.ndata[dgl.NID]['_N'].to('cuda')
+            internal_input_nids = block.ndata[dgll.NID]['_N'].to('cuda')
             h = self.layers[-1](block, h[internal_input_nids])
         return h
 
@@ -69,19 +69,19 @@ class GraphSAGE(nn.Module):
         self.n_classes = n_classes
         self.layers = nn.ModuleList()
         if n_layers > 1:
-            self.layers.append(dglnn.SAGEConv(in_feats, n_hidden, 'mean'))
+            self.layers.append(dgllnn.SAGEConv(in_feats, n_hidden, 'mean'))
             for i in range(1, n_layers - 1):
-                self.layers.append(dglnn.SAGEConv(n_hidden, n_hidden, 'mean'))
-            self.layers.append(dglnn.SAGEConv(n_hidden, n_classes, 'mean'))
+                self.layers.append(dgllnn.SAGEConv(n_hidden, n_hidden, 'mean'))
+            self.layers.append(dgllnn.SAGEConv(n_hidden, n_classes, 'mean'))
         else:
-            self.layers.append(dglnn.SAGEConv(in_feats, n_classes, 'mean'))
+            self.layers.append(dgllnn.SAGEConv(in_feats, n_classes, 'mean'))
         self.dropout = nn.Dropout(dropout)
         self.activation = activation
 
     def forward(self, blocks, x):
-        if isinstance(blocks, dgl.DGLGraph):
+        if isinstance(blocks, dgll.dgllGraph):
             # mos inductive
-            assert isinstance(blocks, dgl.DGLGraph)
+            assert isinstance(blocks, dgll.dgllGraph)
             h = x
             for l, layer in enumerate(self.layers):
                 h = layer(blocks, h)
@@ -108,7 +108,7 @@ class GraphSAGE(nn.Module):
                     h = self.dropout(h)
 
                 # slice out the input nodes for block
-                internal_input_nids = block.ndata[dgl.NID]['_N'].to('cuda')
+                internal_input_nids = block.ndata[dgll.NID]['_N'].to('cuda')
                 h = self.layers[-1](block, h[internal_input_nids])
 
         return h

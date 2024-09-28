@@ -1,10 +1,10 @@
 import os
-os.environ["DGLBACKEND"] = "pytorch"
+os.environ["dgllBACKEND"] = "pytorch"
 
 import sklearn.metrics
 import torch.nn as nn
 import torch.nn.functional as F
-from dgl.data.utils import load_graphs
+from dgll.data.utils import load_graphs
 import mylog
 
 mlog = mylog.get_logger()

@@ -1,9 +1,9 @@
-from ogb.nodeproppred import DglNodePropPredDataset
-from dgl.data import PubmedGraphDataset
-from dgl.data import RedditDataset
-from dgl.data import CoraGraphDataset
-from dgl.data import CiteseerGraphDataset
-from dgl.data.utils import load_graphs
+from ogb.nodeproppred import dgllNodePropPredDataset
+from dgll.data import PubmedGraphDataset
+from dgll.data import RedditDataset
+from dgll.data import CoraGraphDataset
+from dgll.data import CiteseerGraphDataset
+from dgll.data.utils import load_graphs
 
 def load_reddit(root):
     data = RedditDataset(raw_dir=root, self_loop=True)
@@ -35,7 +35,7 @@ def load_citeseer(root):
     return g
 
 def load_arxiv(path):
-    g= DglNodePropPredDataset('ogbn-arxiv')
+    g= dgllNodePropPredDataset('ogbn-arxiv')
     # mlog(f'finish loading Reddit, time elapsed: {time.time() - tic:.2f}s')
 
     return g
@@ -47,7 +47,7 @@ def load_cora(path):
     return g
 
 def load_products(path):
-    g= DglNodePropPredDataset('ogbn-products')
+    g= dgllNodePropPredDataset('ogbn-products')
     # mlog(f'finish loading Reddit, time elapsed: {time.time() - tic:.2f}s')
 
     return g

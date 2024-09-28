@@ -1,13 +1,13 @@
 import os
 import numpy as np
 import sys
-import dgl
-from dgl.data import PubmedGraphDataset
-from dgl.data import CoraGraphDataset, CiteseerGraphDataset
-from dgl.data import RedditDataset
+import dgll
+from dgll.data import PubmedGraphDataset
+from dgll.data import CoraGraphDataset, CiteseerGraphDataset
+from dgll.data import RedditDataset
 import scipy.sparse as sp
 import torch
-from ogb.nodeproppred import DglNodePropPredDataset
+from ogb.nodeproppred import dgllNodePropPredDataset
 
 def matrix_row_normalize(mx):
     """Row-normalize sparse matrix"""
@@ -148,10 +148,10 @@ def load_data(args):
         test_nids = torch.nonzero(graph.ndata['test_mask'], as_tuple=False).squeeze()    # Test node IDs, not used in the tutorial though.
 
     elif args.dataset == "arxiv":
-        dataset = DglNodePropPredDataset('ogbn-arxiv')
+        dataset = dgllNodePropPredDataset('ogbn-arxiv')
         graph, node_labels = dataset[0]
         # Add reverse edges since ogbn-arxiv is unidirectional.
-        graph = dgl.add_reverse_edges(graph)
+        graph = dgll.add_reverse_edges(graph)
         # print(graph.edges(), graph.edges()[0].shape)
         # print(graph.ndata['feat'], graph.ndata['feat'].shape)
         graph.ndata['label'] = node_labels[:, 0]
@@ -161,10 +161,10 @@ def load_data(args):
         test_nids = idx_split['test']    # Test node IDs, not used in the tutorial though.
 
     elif args.dataset == "products":
-        dataset = DglNodePropPredDataset('ogbn-products')
+        dataset = dgllNodePropPredDataset('ogbn-products')
         graph, node_labels = dataset[0]
         # Add reverse edges since ogbn-arxiv is unidirectional.
-        graph = dgl.add_reverse_edges(graph)
+        graph = dgll.add_reverse_edges(graph)
         # print(graph.edges(), graph.edges()[0].shape)
         # print(graph.ndata['feat'], graph.ndata['feat'].shape)
         graph.ndata['label'] = node_labels[:, 0]
@@ -176,7 +176,7 @@ def load_data(args):
 
     elif args.dataset == "proteins":
 
-        dataset = DglNodePropPredDataset('ogbn-proteins')
+        dataset = dgllNodePropPredDataset('ogbn-proteins')
         graph, node_labels = dataset[0]
 
         # print(graph.edges(), graph.edges()[0].shape)
@@ -184,7 +184,7 @@ def load_data(args):
         graph.ndata['label'] = node_labels[:, 0]
         graph.ndata['feat'] = torch.zeros(graph.num_nodes(), graph.edata['feat'].shape[1])
         # Add reverse edges since ogbn-arxiv is unidirectional.
-        graph = dgl.add_reverse_edges(graph)
+        graph = dgll.add_reverse_edges(graph)
         idx_split = dataset.get_idx_split()
         train_nids = idx_split['train']
         valid_nids = idx_split['valid']
@@ -232,7 +232,7 @@ def load_partition(path, graph_name, part_id, load_feat = True):
     if part_id > gpb['num_parts'] - 1:
         print("Partition id is greater than available partitions")
         return
-    g = dgl.load_graphs(os.path.join(path, 'part' + str(part_id), "graph.bin"))[0][0]
+    g = dgll.load_graphs(os.path.join(path, 'part' + str(part_id), "graph.bin"))[0][0]
     if not load_feat:
         g.ndata.pop("feat")
         return g
