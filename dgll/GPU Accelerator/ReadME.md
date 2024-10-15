@@ -10,7 +10,7 @@
 
 
 
-```
+
 ##### Configurable parameters for GNN training
 Following are the user-defined configurable parameters in main.py
 ```
