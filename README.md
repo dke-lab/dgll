@@ -57,3 +57,4 @@ If you use this work, please cite the following publications:
 - Morshed, Md Golam, Tangina Sultana, and Young-Koo Lee. "FaLa: feature-augmented location-aware transformer network for graph representation learning." Neural Computing and Applications (2025): 1-28.
 - Morshed, Md Golam, Tangina Sultana, and Young-Koo Lee. "LeL-GNN: Learnable edge sampling and line based graph neural network for link prediction." IEEE Access 11 (2023): 56083-56097.
 - Morshed, Md Golam, and Young-Koo Lee. "LFP: Layer Wise Feature Perturbation based Graph Neural Network for Link Prediction." 2023 IEEE International Conference on Big Data and Smart Computing (BigComp). IEEE, 2023.
+- Sultana, Tangina, et al. "Enhancing link prediction in graph data augmentation through graphon mixup." Neural Computing and Applications (2025): 1-16.
